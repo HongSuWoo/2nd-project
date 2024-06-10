@@ -5,6 +5,7 @@ import ViewContacts from '../components/ViewContacts.vue';
 import TodoList from '../components/TodoList.vue';
 import NearSearch from '../components/NearSearch.vue';
 import Login from '../views/1_login.vue'
+import Favorites from '@/components/Favorites.vue';
 const routes = [
   {
     path: '/login',
@@ -39,7 +40,12 @@ const routes = [
         path: '/near-search',
         name: 'NearSearch',
         component: NearSearch,
-      }
+      },
+      {
+        path: '/favorites',
+        name: 'Favorites',
+        component: Favorites,
+      },
     ]
   }
 ];
