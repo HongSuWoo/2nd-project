@@ -1,5 +1,5 @@
 <script setup>
-
+import { RouterLink, RouterView } from 'vue-router'
 </script>
 <template>
 <body>
@@ -43,7 +43,9 @@
                     </div>
                     <!-- 4. submit button -->
                     <div class="login__btn__container">
+                        <RouterLink to="/home">
                         <button class="login__btn" onclick="login()">Log in</button>
+                    </RouterLink>
                     </div>
                 </form>
                 <!-- 5. direction -->
@@ -65,13 +67,14 @@
     margin: 0;
 }
 body {
+    
     width: 100%;
     height: 100vh;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #fff;
-    background-color: #feb9b4;
+    background-color: #4CAF50;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -82,7 +85,7 @@ body {
 }
 a {
     text-decoration: none;
-    color: #e59a9a;
+    color: #054909;
     font-weight: 700;
 }
 img {
@@ -100,7 +103,7 @@ button {
     width: 360px;
     height: 640px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-    filter: drop-shadow(0px 20px 30px #ffa8a2);
+    filter: drop-shadow(0px 20px 30px #45a049);
     backdrop-filter: blur(25px);
     border-radius: 30px;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -127,7 +130,7 @@ header {
     width: 34px;
     height: 34px;
     padding: 5px;
-    background: #ffa7a0;
+    background: #45a049;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 6px;
     display: flex;
@@ -138,10 +141,10 @@ header {
 .btn--back {
     width: 24px;
     height: 24px;
-    background: linear-gradient(154.48deg, #ff6d83 27.32%, #fe4958 95.74%);
-    border: 1px solid #ffabb7;
+    background: linear-gradient(154.48deg, #ffe347 27.32%, #fc7100 95.74%);
+    border: 1px solid #45a049;
     border-radius: 4px;
-    border: 1px solid #ffabb7;
+    border: 1px solid #45a049;
 }
 
 /* ================== login content ================== */
@@ -161,7 +164,7 @@ header {
 }
 .login__title {
     font-size: 24px;
-    color: #ff6e84;
+    color: #ffffff;
     padding-bottom: 30px;
 }
 /* ###### 1. email ###### */
@@ -191,7 +194,7 @@ header {
     transition: all 0.2s ease-in-out;
 }
 .input__container.active {
-    border: 1px solid #ff6e84;
+    border: 1px solid #ffffff;
 }
 .input__container > span {
     margin-right: 6px;
@@ -206,7 +209,7 @@ header {
 }
 .input__container input::placeholder {
     font-size: 12px;
-    color: #e59a9a;
+    color: #ffffff;
 }
 .input__container input:focus {
     outline: none;
@@ -249,7 +252,7 @@ header {
     margin-right: 6px;
 }
 .check-id__container input[type='checkbox']:checked + label span {
-    background-color: #ff6e84;
+    background-color: #45a049;
     background: url(./img/icon_check-id--checked.svg);
 }
 .check-id__container label {
@@ -262,7 +265,7 @@ header {
 .login__btn__container {
     width: 100%;
     height: 68px;
-    background: #ffa7a0;
+    background: #45a049;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     display: flex;
@@ -273,8 +276,8 @@ header {
 .login__btn {
     width: 220px;
     height: 48px;
-    background: linear-gradient(154.48deg, #ff6d83 27.32%, #fe4958 95.74%);
-    border: 1px solid #ffabb7;
+    background: linear-gradient(154.48deg, #05a80d 27.32%, #044007 95.74%);
+    border: 1px solid #45a049;
     border-radius: 8px;
     color: #fff;
     font-weight: 700;
