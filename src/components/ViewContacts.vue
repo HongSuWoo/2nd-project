@@ -16,7 +16,7 @@
           <p><strong>Email:</strong> {{ contact.email }}</p>
           <p><strong>Address:</strong> {{ contact.address }}</p>
           <button @click="editContact(contact)">수정</button>
-          <button @click="deleteContact(index)">삭제</button>
+          <button @click="deleteContact(contact.id)">삭제</button>
         </div>
         <div v-if="editingContact && editingContact.id === contact.id" class="edit-contact">
           <h3>연락처 수정</h3>
@@ -34,22 +34,21 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+import { useContact } from '../stores/datainfo.js';
 
-const props = defineProps({
-  contacts: {
-    type: Array,
-    required: true,
-    default: () => []
-  }
-});
+const { blogs, blogHandler, modifyHandler, deleteHandler } = useContact();
 
 const selectedIndex = ref(null);
 const editingContact = ref(null);
 const searchQuery = ref('');
 
+onMounted(() => {
+  blogHandler();
+});
+
 const filteredContacts = computed(() => {
-  return props.contacts.filter(contact => 
+  return blogs.filter(contact => 
     contact.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
     contact.phone.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
     contact.group.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
@@ -66,16 +65,13 @@ const editContact = (contact) => {
   editingContact.value = { ...contact };
 };
 
-const deleteContact = (index) => {
-  props.contacts.splice(index, 1);
-  if (selectedIndex.value === index) {
-    selectedIndex.value = null;
-  }
+const deleteContact = (id) => {
+  deleteHandler(id);
+  selectedIndex.value = null;
 };
 
 const saveContact = () => {
-  const index = props.contacts.findIndex(contact => contact.id === editingContact.value.id);
-  props.contacts[index] = { ...editingContact.value };
+  modifyHandler(editingContact.value);
   editingContact.value = null;
   selectedIndex.value = null;
 };
@@ -168,4 +164,3 @@ input {
   box-sizing: border-box;
 }
 </style>
-

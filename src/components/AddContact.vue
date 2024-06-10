@@ -3,57 +3,36 @@
     <h2>새 연락처 등록</h2>
     <div class="form-group">
       <label>Name</label>
-      <input v-model="newContact.name" placeholder="Name" required />
+      <input v-model="datainfo.name" placeholder="Name" required />
     </div>
     <div class="form-group">
       <label>Phone</label>
-      <input v-model="newContact.phone" placeholder="Phone" required />
+      <input v-model="datainfo.phone" placeholder="Phone" required />
     </div>
     <div class="form-group">
       <label>Group</label>
-      <input v-model="newContact.group" placeholder="Group" />
+      <input v-model="datainfo.group" placeholder="Group" />
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input v-model="newContact.email" placeholder="Email" />
+      <input v-model="datainfo.email" placeholder="Email" />
     </div>
     <div class="form-group">
       <label>Address</label>
-      <input v-model="newContact.address" placeholder="Address" />
+      <input v-model="datainfo.address" placeholder="Address" />
     </div>
     <button @click="handleAddContact">등록</button>
   </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { useContact } from '../stores/datainfo.js';
 
-const props = defineProps({
-  addContact: {
-    type: Function,
-    required: true
-  }
-});
-
-const newContact = reactive({
-  name: '',
-  phone: '',
-  group: '',
-  email: '',
-  address: '',
-});
+const contactStore = useContact();
+const { datainfo, datainfoHandler } = contactStore;
 
 const handleAddContact = () => {
-  if (newContact.name && newContact.phone) {
-    props.addContact({ ...newContact });
-    newContact.name = '';
-    newContact.phone = '';
-    newContact.group = '';
-    newContact.email = '';
-    newContact.address = '';
-  } else {
-    alert('Name and Phone are required fields.');
-  }
+  datainfoHandler(datainfo);
 };
 </script>
 
