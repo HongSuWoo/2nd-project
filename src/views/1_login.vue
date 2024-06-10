@@ -74,7 +74,7 @@ body {
     font-size: 14px;
     font-weight: 400;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #429c45;
     display: flex;
     flex-direction: row;
     justify-content: center;
