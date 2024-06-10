@@ -13,6 +13,9 @@
       <router-link to="/near-search">
         <button>주변 검색</button>
       </router-link>
+      <router-link to="/favorites">
+        <button>즐겨 찾기</button>
+      </router-link>
     </div>
     <div class="main-content">
       <router-view :contacts="contacts" :add-contact="addContact"/>
