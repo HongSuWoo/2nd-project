@@ -18,7 +18,7 @@ const routes = [
     children: [
       {
         path: '/',
-        redirect: 'ViewContacts', // 기본 경로를 view-contacts로 리디렉션
+        redirect: 'Login', // 기본 경로를 view-contacts로 리디렉션
       },
       {
         path: '/view-contacts',
