@@ -29,12 +29,12 @@ npm run build
 ```
 "# 2nd-project" 
 ## install 해야하는 것들
-<ul>npm i 
+<pr>npm i 
 npm install -g json-server
 json-server --watch db.json
 npm config get prefix
 npx json-server --watch db.json
-</ul>
+</pr>
 ## 사용포트
 http://localhost:5173
 ## json 포트
