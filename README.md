@@ -32,6 +32,8 @@ npm run build
 npm i 
 npm install -g json-server
 json-server --watch db.json
+npm config get prefix
+npx json-server --watch db.json
 
 ## 사용포트
 http://localhost:5173
