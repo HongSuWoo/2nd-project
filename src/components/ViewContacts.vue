@@ -34,7 +34,8 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watchEffect} from 'vue';
+import { useRoute } from 'vue-router';
 import { useContact } from '../stores/datainfo.js';
 
 const { blogs, blogHandler, modifyHandler, deleteHandler } = useContact();

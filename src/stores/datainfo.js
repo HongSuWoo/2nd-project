@@ -42,7 +42,7 @@ export const useContact = defineStore("datas", () => {
                 address: datas.address
             })
         }).then(response => response.status)
-            .then(result => result == 200 ? router.push("/") : alert("수정 실패"));
+            .then(result => result == 200 ? router.push("/view-contacts") : alert("수정 실패"));
     }
 
     const datainfoHandler = (datas) => {
@@ -60,14 +60,14 @@ export const useContact = defineStore("datas", () => {
                 address: datas.address
             })
         }).then(response => response.status)
-            .then(result => result == 201 ? router.push("/") : alert("추가 실패"));
+            .then(result => result == 201 ? router.push("/view-contacts") : alert("추가 실패"));
     }
 
     const deleteHandler = (id) => {
         fetch('http://localhost:3000/users/' + id, {
             method: "DELETE"
         }).then(response => response.status)
-            .then(data => data == 200 ? router.push("/") : alert("삭제 실패"));
+            .then(data => data == 200 ? router.push("/view-contacts") : alert("삭제 실패"));
     }
 
     return { blogs, detailsinfo, datainfo, blogHandler, detailsHandler, modifyHandler, datainfoHandler, deleteHandler }

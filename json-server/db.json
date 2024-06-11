@@ -1,52 +1,20 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "John Doe",
-      "phone": "123-456-7890",
-      "group": "Friends",
-      "email": "john@example.com",
-      "address": "123 Main St"
-    },
-    {
-      "id": "2",
-      "name": "Jane Smith",
-      "phone": "987-654-3210",
-      "group": "Family",
-      "email": "jane@example.com",
-      "address": "456 Elm St"
-    },
-    {
       "id": 1,
       "name": "강형석",
       "phone": "01050023861",
       "group": "",
       "email": "",
-      "address": ""
+      "address": "노원구상계9동"
     },
     {
-      "id": 4,
+      "id": 2,
       "name": "강형석",
       "phone": "01050023861",
       "group": "",
       "email": "",
-      "address": ""
-    },
-    {
-      "id": 5,
-      "name": "강형석3",
-      "phone": "01050023861",
-      "group": "",
-      "email": "",
-      "address": ""
-    },
-    {
-      "id": 6,
-      "name": "강형석3",
-      "phone": "01050023861",
-      "group": "",
-      "email": "",
-      "address": ""
+      "address": "노원구상계9동"
     }
   ]
 }
