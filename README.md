@@ -33,7 +33,7 @@ npm run build
 npm install -g json-server
 json-server --watch db.json
 npm config get prefix
-npx json-server --watch db.json
+npx json-server --watch 파일명.json --port 설정할포트
 </pr>
 ## 사용포트
 http://localhost:5173
