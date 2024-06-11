@@ -52,7 +52,7 @@ export const useContact = defineStore("datas", () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                id: blogs.value.length + 1,
+                id: `${blogs.value.length + 1}`,
                 name: datas.name,
                 phone: datas.phone,
                 group: datas.group,
@@ -64,10 +64,19 @@ export const useContact = defineStore("datas", () => {
     }
 
     const deleteHandler = (id) => {
+        console.log('http://localhost:3000/users/' + id);
         fetch('http://localhost:3000/users/' + id, {
             method: "DELETE"
-        }).then(response => response.status)
-            .then(data => data == 200 ? router.push("/view-contacts") : alert("삭제 실패"));
+        }).then(response => {
+            if (response.status == 200) {
+                alert("삭제 성공");
+                router.push("/view-contacts");
+                // 연락처 목록을 다시 로드하여 UI 갱신
+                blogHandler();
+            } else {
+                alert("삭제 실패");
+            }
+        });
     }
 
     return { blogs, detailsinfo, datainfo, blogHandler, detailsHandler, modifyHandler, datainfoHandler, deleteHandler }
