@@ -28,3 +28,12 @@ npm run dev
 npm run build
 ```
 "# 2nd-project" 
+## install 해야하는 것들
+npm i 
+npm install -g json-server
+json-server --watch db.json
+
+## 사용포트
+http://localhost:5173
+## json 포트
+http://localhost:3000/users/
