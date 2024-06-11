@@ -1,18 +1,14 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
- <RouterLink to="/home">홈    </RouterLink>
- <RouterLink to="/login">     로근</RouterLink>
- 
-<main>
-<RouterView/>
-</main>
+  <RouterLink to="/home">홈 </RouterLink>
+  <RouterLink to="/login"> 로근</RouterLink>
 
+  <main>
+    <RouterView />
+  </main>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

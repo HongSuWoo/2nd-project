@@ -13,24 +13,44 @@
       <router-link to="/near-search">
         <button>주변 검색</button>
       </router-link>
+      <router-link to="/export-address">
+        <button>주소 내보내기</button>
+      </router-link>
     </div>
     <div class="main-content">
-      <router-view :contacts="contacts" :add-contact="addContact"/>
+      <router-view :contacts="contacts" :add-contact="addContact" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { reactive } from "vue";
+import ExportAddress from '@/components/ExportAddress.vue';
 
 const contacts = reactive([
-  { id: 1, name: 'John Doe', phone: '123-456-7890', group: 'Friends', email: 'john@example.com', address: '123 Main St' },
-  { id: 2, name: 'Jane Smith', phone: '987-654-3210', group: 'Family', email: 'jane@example.com', address: '456 Elm St' }
+  {
+    id: 1,
+    name: "John Doe",
+    phone: "123-456-7890",
+    group: "Friends",
+    email: "john@example.com",
+    address: "123 Main St",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    phone: "987-654-3210",
+    group: "Family",
+    email: "jane@example.com",
+    address: "456 Elm St",
+  },
 ]);
 
 const addContact = (newContact) => {
   contacts.push({ id: Date.now(), ...newContact });
 };
+
+
 </script>
 
 <style scoped>
@@ -57,7 +77,7 @@ const addContact = (newContact) => {
 .sidebar button {
   margin-bottom: 10px;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;

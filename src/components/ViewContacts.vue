@@ -18,7 +18,10 @@
           <button @click="editContact(contact)">수정</button>
           <button @click="deleteContact(index)">삭제</button>
         </div>
-        <div v-if="editingContact && editingContact.id === contact.id" class="edit-contact">
+        <div
+          v-if="editingContact && editingContact.id === contact.id"
+          class="edit-contact"
+        >
           <h3>연락처 수정</h3>
           <input v-model="editingContact.name" placeholder="Name" />
           <input v-model="editingContact.phone" placeholder="Phone" />
@@ -34,27 +37,28 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed } from "vue";
 
 const props = defineProps({
   contacts: {
     type: Array,
     required: true,
-    default: () => []
-  }
+    default: () => [],
+  },
 });
 
 const selectedIndex = ref(null);
 const editingContact = ref(null);
-const searchQuery = ref('');
+const searchQuery = ref("");
 
 const filteredContacts = computed(() => {
-  return props.contacts.filter(contact => 
-    contact.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    contact.phone.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    contact.group.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    contact.email.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-    contact.address.toLowerCase().includes(searchQuery.value.toLowerCase())
+  return props.contacts.filter(
+    (contact) =>
+      contact.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      contact.phone.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      contact.group.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      contact.email.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      contact.address.toLowerCase().includes(searchQuery.value.toLowerCase())
   );
 });
 
@@ -74,7 +78,9 @@ const deleteContact = (index) => {
 };
 
 const saveContact = () => {
-  const index = props.contacts.findIndex(contact => contact.id === editingContact.value.id);
+  const index = props.contacts.findIndex(
+    (contact) => contact.id === editingContact.value.id
+  );
   props.contacts[index] = { ...editingContact.value };
   editingContact.value = null;
   selectedIndex.value = null;
@@ -111,9 +117,9 @@ const cancelEdit = () => {
 
 .search-container button {
   padding: 8px 16px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
-  border: 1px solid #4CAF50;
+  border: 1px solid #4caf50;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
 }
@@ -149,7 +155,7 @@ li:hover {
 button {
   margin: 5px;
   padding: 5px 10px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -168,4 +174,3 @@ input {
   box-sizing: border-box;
 }
 </style>
-
